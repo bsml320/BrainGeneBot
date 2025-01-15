@@ -1,0 +1,6 @@
+{
+        "method": "neural_network",
+        "test_size": 0.5,
+        "epochs": 200
+    }
+

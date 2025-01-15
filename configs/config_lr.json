@@ -1,0 +1,6 @@
+{
+        "method": "linear_regression",
+        "model_params": {},
+        "use_transformed_target_regressor": true,
+        "test_size": 0.5
+    }

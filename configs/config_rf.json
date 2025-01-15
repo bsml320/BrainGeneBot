@@ -1,0 +1,11 @@
+{
+        "method": "random_forest",
+        "model_params": {
+            "n_estimators": 100,
+            "max_depth": null
+        },
+        "use_transformed_target_regressor": true,
+        "test_size": 0.5
+}
+
+

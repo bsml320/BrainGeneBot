@@ -1,0 +1,9 @@
+{
+        "method": "ridge",
+        "model_params": {
+            "alpha": 1.0
+        },
+        "use_transformed_target_regressor": true,
+        "test_size": 0.5
+    }
+

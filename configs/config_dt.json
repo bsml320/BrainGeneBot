@@ -1,0 +1,9 @@
+{
+        "method": "decision_tree",
+        "model_params": {
+            "max_depth": 5
+        },
+        "use_transformed_target_regressor": true,
+        "test_size": 0.5
+    }
+
