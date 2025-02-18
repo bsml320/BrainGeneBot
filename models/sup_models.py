@@ -13,11 +13,13 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.svm import SVR
 from sklearn.compose import TransformedTargetRegressor
 import pickle, os
+import sys
 from models.dataset import feature_engineering
 import random
-# from Bio import Entrez
+from Bio import Entrez
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 
 def rsid2gene(rsids):
     Entrez.email = 'adamrt9319@gmail.com'
@@ -82,6 +84,7 @@ def preprocess_data(X_train, X_test, y_train, y_test, X=None, y=None):
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
+
     # X_train_scaled = X_train
     # X_test_scaled = X_test
     power_transformer = PowerTransformer(method='yeo-johnson')
@@ -91,7 +94,9 @@ def preprocess_data(X_train, X_test, y_train, y_test, X=None, y=None):
 
     if X is not None and y is not None:
         X_scaled = scaler.transform(X)
+
         y_transformed = power_transformer.transform(y.reshape(-1, 1))
+
         return X_train_scaled, X_test_scaled, y_train_transformed, y_test_transformed, X_scaled, y_transformed
     return X_train_scaled, X_test_scaled, y_train_transformed, y_test_transformed
 
@@ -548,7 +553,7 @@ if __name__ == "__main__":
         'test_size': 0.5,
         'random_state': 42
     }
-    main(config)
+    main(config_rf)
     # main(config_svr)
     # main(config_nn)
     # main(config_lr)

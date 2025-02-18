@@ -7,3 +7,5 @@ for config in configs:
     for seed in seeds:
         seed_it(seed)
         os.system('python main_sup.py --config configs/{}.json'.format(config))
+        break
+    break

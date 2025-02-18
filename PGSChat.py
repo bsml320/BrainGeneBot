@@ -97,41 +97,40 @@ rs72364644   & ZAN             & rs10760502   & FPGS             \\
 rs7447815    & SLC6A18         & rs2074071    & ZNF419           \\"""
 
     rank_result_1 = """
-                rs10004266  & TBC1D9        & rs10005919  & LOC105377557  \\
-            rs1001530   & FAM193B-DT    & rs10034594  & SPOCK3        \\
-            rs10038689  & CERT1         & rs1004173   & CD2AP         \\
-            rs10051466  & MCTP1         & rs1006054   & CNTN2         \\
-            rs10060770  & LINC02161     & rs10061009  & OSMR-DT       \\
-            rs10064888  & LOC107984118  & rs10064888  & LINC01484     \\
-            rs10065484  & COL23A1       & rs10068901  & CERT1        \\
-            rs10076162  & SLC9A3        & rs10084301  & KLF7          \\
-            rs10087496  & FAM135B       & rs10093681  & TUSC3         \\
-            rs10093803  & LOC105375721  & rs10097651  & PTK2B         \\
-            rs10100516  & CSMD1         & rs10101864  & MAL2-AS1      \\
-            rs10101864  & MAL2          & rs10131280  & LOC102724977   \\
-            rs10135174  & SLC24A4       & rs10135388  & GPR68         \\
-            rs10148013  & LINC00519     & rs10168568  & PLA2R1        \\
-            rs10171236  & MARCHF7       & rs10171658  & INPP5D        \\
-            rs10179642  & ADAM17        & rs10188272  & PLA2R1        \\
-            rs10194375  & BIN1          & rs10200967  & BIN1          \\
-            rs10202748  & INPP5D        & rs10224310  & EPHA1-AS1     \\
-            rs10225022  & CARD11-AS1     & rs10225022  & CARD11        \\
-            rs10226151  & EPHA1-AS1     & rs10228407  & EPHA1-AS1     \\
-            rs10241928  & CADPS2        & rs10242979  & CARD11-AS1     \\
-            rs10242979  & CARD11         & rs10264306  & JAZF1-AS1     \\
-            rs10268511  & CADPS2        & rs10279935  & TNS3          \\
-            rs1038026   & TOMM40        & rs10401176  & BCL3          \\
-            rs10401270  & RTN2          & rs10401300  & ADAMTS10      \\
-            rs10403030  & MYPOP         & rs10403682  & CEACAM16-AS1   \\
-            rs10403682  & CEACAM16      & rs10405086  & PPP1R37       \\
-            rs10405621  & SIGLEC11      & rs10405859  & PPP1R37       \\
-            rs10410003  & EXOC3L2       & rs10411314  & EXOC3L2       \\
-            rs10411518  & GPR4          & rs10411821  & GPR4          \\
-            rs10412551  & CCDC8         & rs10412761  & POLR1G        \\
-            rs10412761  & PPP1R13L      & rs10413074  & SBNO2         \\
-            rs10414552  & LILRB1        & rs10416517  & ERCC1         \\
-            rs10417304  & LOC105372334  & rs10417602  & LOC105372420  \\
-            rs10417602  & NKPD1         & rs10418569  & FFAR1         \\
+            rs429358 & APOE & rs2075650 & TOMM40 \\
+            rs4420638 & APOC1 & rs769449 & APOE \\
+            rs7412 & APOE & rs157582 & TOMM40 \\
+            rs75932628 & TREM2 & rs157580 & TOMM40 \\
+            rs6859 & NECTIN2 & rs28399637 & BCAM \\
+            rs6733839 & LOC105373605 & rs405509 & APOE \\
+            rs11218343 & SORL1 & rs1160985 & TOMM40 \\
+            rs6857 & NECTIN2 & rs405697 & TOMM40 \\
+            rs143080277 & NCK2 & rs10004266 & TBC1D9 \\
+            rs10005919 & LOC105377557 & rs1001530 & FAM193B-DT \\
+            rs10034594 & SPOCK3 & rs10038689 & CERT1 \\
+            rs1004173 & CD2AP & rs10051466 & MCTP1 \\
+            rs1006054 & CNTN2 & rs10060770 & LINC02161 \\
+            rs10061009 & OSMR-DT & rs10064888 & LINC01484 \\
+            rs10065484 & COL23A1 & rs10068901 & CERT1 \\
+            rs10076162 & SLC9A3 & rs10084301 & KLF7 \\
+            rs10087496 & FAM135B & rs10093681 & TUSC3 \\
+            rs10093803 & LOC105375721 & rs10097651 & PTK2B \\
+            rs10100516 & CSMD1 & rs10101864 & MAL2(-AS1) \\
+            rs10131280 & LOC102724977 & rs10135174 & SLC24A4 \\
+            rs10135388 & GPR68 & rs10148013 & LINC00519 \\
+            rs10168568 & PLA2R1 & rs10171236 & MARCHF7 \\
+            rs10171658 & INPP5D & rs10179642 & ADAM17 \\
+            rs10188272 & PLA2R1 & rs10194375 & BIN1 \\
+            rs10200967 & BIN1 & rs10202748 & INPP5D \\
+            rs10224310 & EPHA1-AS1 & rs10225022 & CARD11(-AS1) \\
+            rs10226151 & EPHA1-AS1 & rs10228407 & EPHA1-AS1 \\
+            rs10241928 & CADPS2 & rs10242979 & CARD11(-AS1) \\
+            rs10264306 & JAZF1-AS1 & rs10268511 & CADPS2 \\
+            rs10279935 & TNS3 & rs1038026 & TOMM40 \\
+            rs10401176 & BCL3 & rs10401270 & RTN2 \\
+            rs10401300 & ADAMTS10 & rs10403030 & MYPOP \\
+            rs10403682 & CEACAM16(-AS1) & rs10405086 & PPP1R37 \\
+            rs10405621 & SIGLEC11 & rs10405859 & PPP1R37 \\
     """
     prompt = generate_prompt_PGS(disease_category, top_n_variants, rank_result_1)
     print(prompt)

@@ -121,3 +121,37 @@ def rsid2gene(rsids):
         else:
             print(f"No gene links found for {snp_id}")
     return names
+
+
+
+def read_csv_as_string_table(csv_filename, max_col_width=5000, delimiter=","):
+    """
+    Reads a CSV file and converts it into a structured string table for direct API input.
+    Handles special cases like missing values, encoding issues, and long text truncation.
+
+    Parameters:
+        csv_filename (str): Path to the CSV file.
+        max_col_width (int): Max width of each column for display (truncation).
+        delimiter (str): Delimiter used in the CSV file.
+
+    Returns:
+        str: The CSV content formatted as a structured string table.
+    """
+    try:
+        # Read CSV into a DataFrame with automatic encoding detection
+        df = pd.read_csv(csv_filename, delimiter=delimiter, encoding="utf-8", dtype=str, na_filter=False)
+
+        # Truncate long fields for readability
+        df = df.applymap(lambda x: (x[:max_col_width] + "...") if len(x) > max_col_width else x)
+
+        # Ensure all missing values are replaced with a placeholder
+        df.fillna("N/A", inplace=True)
+
+        # Convert DataFrame to a formatted string table (without index)
+        table_str = df.to_string(index=False)
+
+        return table_str
+
+    except Exception as e:
+        print(f"Error reading CSV file: {e}")
+        return None  # Return None if the file cannot be read

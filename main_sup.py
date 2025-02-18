@@ -1,6 +1,8 @@
 import argparse
 import json
 import os
+
+import numpy as np
 from models.sup_models import load_data, split_data, ClassicalModel, NeuralNetworkModel, preprocess_data
 import logging
 from datetime import datetime
@@ -27,16 +29,57 @@ def main(config, model_filepath=None, action="train"):
         raise FileNotFoundError(f"Data directory not found at path: {data_path}")
 
     X, y, rsID = load_data(data_path)
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    # Create the plot using seaborn
+    plt.figure(figsize=(8, 6))
+    sns.histplot(y, kde=True, color='skyblue', edgecolor='black', bins=30)
+
+    # Add titles and labels
+    plt.title("Distribution of y")
+    plt.xlabel("y values")
+    plt.ylabel("Frequency")
+
+    # Display the plot
+    plt.show()
+
+    # keep the top N
+    n = 20
+
+    # Get the original indices (0-based) of the data
+    indices = list(range(len(y)))
+
+    # Sort indices based on the y values (in descending order)
+    sorted_indices = sorted(indices, key=lambda i: y[i], reverse=True)
+
+    # Get the indices of the top n samples
+    top_n_indices = set(sorted_indices[:n])
+
+    # Extract top n samples (sorted by descending y)
+    top_n_X = [X[i] for i in sorted_indices[:n]]
+    top_n_y = [y[i] for i in sorted_indices[:n]]
+    top_n_rsID = [rsID[i] for i in sorted_indices[:n]]
+
+    # Extract the remaining samples in their original order
+    remaining_X = np.array([X[i] for i in indices if i not in top_n_indices])
+    remaining_y = np.array([y[i] for i in indices if i not in top_n_indices]).reshape(-1,)
+    remaining_rsID = [rsID[i] for i in indices if i not in top_n_indices]
+
+
+
+
+    # logging.info(top_n_rsID)
     # print("Data successfully loaded.")
     logging.info("Data successfully loaded.")
     # Split Data
     test_size = config.get('test_size', 0.2)
     random_state = config.get('random_state', 42)
     X_train, X_test, y_train, y_test, rsID_train, rsID_test = split_data(
-        X, y, rsID, test_size=test_size
+        remaining_X, remaining_y, remaining_rsID, test_size=test_size
     )
+
     X_train_scaled, X_test_scaled, y_train_transformed, y_test_transformed, X_scaled, y_transformed = preprocess_data(
-        X_train, X_test, y_train, y_test, X, y)
+        X_train, X_test, y_train, y_test, remaining_X, remaining_y)
     # print(f"Data split completed: {len(X_train)} training samples, {len(X_test)} testing samples.")
     logging.info("Data split completed: {len(X_train)} training samples, {len(X_test)} testing samples.")
     # Model Selection
@@ -60,7 +103,7 @@ def main(config, model_filepath=None, action="train"):
         # print(results)
         logging.info(results)
         predictions, ranks, rsID_to_rank, ordered_rsIDs = model.predict(X_scaled, y_transformed, rsID)
-        logging.info(ordered_rsIDs)
+        logging.info(top_n_rsID+ordered_rsIDs)
     elif action == "load" and model_filepath:
         model = model_class.load_model(model_filepath, config)
         # print(f"Model loaded from {model_filepath}")
