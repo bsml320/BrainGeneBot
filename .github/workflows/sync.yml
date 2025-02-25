@@ -1,0 +1,9 @@
+yaml 
+name: Sync Forkon:schedule:- cron: '0 0 * * *'  # Runs daily at midnight UTCworkflow_dispatch:  # Allows manual triggerjobs:sync:runs-on: ubuntu-lateststeps:- name: Checkout the repositoryuses: actions/checkout@v4- name: Set up Gitrun: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"- name: Add upstream and fetch changesrun: |
+          git remote add upstream https://github.com/GQ93/BrainGeneBot.git
+          git fetch upstream- name: Merge upstream changesrun: |
+          git checkout main
+          git merge upstream/main --allow-unrelated-histories || true
+          git push origin main
