@@ -1,4 +1,3 @@
-yaml 
 name: Sync Forkon:schedule:- cron: '0 0 * * *'  # Runs daily at midnight UTCworkflow_dispatch:  # Allows manual triggerjobs:sync:runs-on: ubuntu-lateststeps:- name: Checkout the repositoryuses: actions/checkout@v4- name: Set up Gitrun: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"- name: Add upstream and fetch changesrun: |
