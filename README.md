@@ -1,4 +1,4 @@
-# 🧬 Project Title
+# 🧬 BrainGeneBot
 
 *BrainGeneBot: A Framework for Variant Prioritization and GPT-informed Interpretation across Polygenic Risk Score Studies*
 
